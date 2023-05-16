@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// import { useContext } from "react";
+import "./App.css";
+// import { Redirect, Route, Switch } from "react-router-dom";
+// import Home from "./component/pages/Home";
+// import Product from "./component/pages/Product";
+import MainHeader from "./component/auth/MainHeader";
+import Login from "./component/pages/Login";
+// import About from "./component/pages/About";
+// import AuthContext from "./component/auth/AuthContext";
 
 function App() {
+  // const authCntx = useContext(AuthContext);
+  // const loggedIn = authCntx.isLoggedIn;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MainHeader />
+      <Login />
+      {/* <Switch>
+        <Route path="/" exact>
+          {loggedIn && <Redirect to="/home" />}
+        </Route>
+        <Route path="/home">{loggedIn && <Home />}</Route>
+        <Route path="/product">{loggedIn && <Product />}</Route>
+        <Route path="/about">{loggedIn && <About />}</Route>
+        <Route path="/login">{loggedIn && <Login />}</Route>
+      </Switch> */}
+    </>
   );
 }
 
