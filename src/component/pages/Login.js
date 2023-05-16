@@ -58,6 +58,8 @@ const Login = () => {
         })
         .then((data) => {
           authCntx.login(data.email);
+          console.log(data.email);
+          console.log("login");
           history.replace("/");
         })
         .catch((err) => {
@@ -79,6 +81,7 @@ const Login = () => {
               type="text"
               id="email"
               ref={emailRef}
+              required
               className="form-control"
               placeholder="Enter email"
             ></input>
@@ -89,6 +92,7 @@ const Login = () => {
               type="password"
               id="pass"
               ref={passRef}
+              required
               className="form-control"
               placeholder="Enter password"
             ></input>
@@ -99,6 +103,7 @@ const Login = () => {
               type="password"
               id="confirmPass"
               ref={confirmRef}
+              required
               autoComplete="off"
               className="form-control"
               placeholder="Confirm password"

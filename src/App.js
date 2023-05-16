@@ -1,29 +1,39 @@
-// import { useContext } from "react";
+import { useContext } from "react";
 import "./App.css";
-// import { Redirect, Route, Switch } from "react-router-dom";
-// import Home from "./component/pages/Home";
-// import Product from "./component/pages/Product";
+import { Redirect, Route, Switch } from "react-router-dom";
+import Home from "./component/pages/Home";
+import Product from "./component/pages/Product";
 import MainHeader from "./component/auth/MainHeader";
 import Login from "./component/pages/Login";
-// import About from "./component/pages/About";
-// import AuthContext from "./component/auth/AuthContext";
+import About from "./component/pages/About";
+import AuthContext from "./component/auth/AuthContext";
 
 function App() {
-  // const authCntx = useContext(AuthContext);
-  // const loggedIn = authCntx.isLoggedIn;
+  const authCntx = useContext(AuthContext);
+  console.log(authCntx.isLoggedIn);
   return (
     <>
       <MainHeader />
-      <Login />
-      {/* <Switch>
+      <Switch>
         <Route path="/" exact>
-          {loggedIn && <Redirect to="/home" />}
+          <Redirect to="/home" />
         </Route>
-        <Route path="/home">{loggedIn && <Home />}</Route>
-        <Route path="/product">{loggedIn && <Product />}</Route>
-        <Route path="/about">{loggedIn && <About />}</Route>
-        <Route path="/login">{loggedIn && <Login />}</Route>
-      </Switch> */}
+        <Route path="/home">
+          {authCntx.isLoggedIn && <Home />}
+          {!authCntx.isLoggedIn && <Redirect to="/login" />}
+        </Route>
+        <Route path="/product">
+          {authCntx.isLoggedIn && <Product />}
+          {!authCntx.isLoggedIn && <Redirect to="/login" />}
+        </Route>
+        <Route path="/about">
+          {authCntx.isLoggedIn && <About />}
+          {!authCntx.isLoggedIn && <Redirect to="/login" />}
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+      </Switch>
     </>
   );
 }
