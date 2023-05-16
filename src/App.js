@@ -7,6 +7,7 @@ import MainHeader from "./component/auth/MainHeader";
 import Login from "./component/pages/Login";
 import About from "./component/pages/About";
 import AuthContext from "./component/auth/AuthContext";
+import Profile from "./component/pages/Profile";
 
 function App() {
   const authCntx = useContext(AuthContext);
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/profile">
+          <Profile />
         </Route>
       </Switch>
     </>

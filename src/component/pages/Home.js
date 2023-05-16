@@ -1,8 +1,25 @@
+import { Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+
 const Home = () => {
+  const history = useHistory();
+
+  const linkHandler = () => {
+    history.replace("/profile");
+  };
   return (
     <>
-      <h1>Welcome to Expense Tracker</h1>
-      {console.log("home")}
+      <div className="border-bottom">
+        <p>
+          Welcome to Expense Tracker
+          <p style={{ float: "right" }}>
+            Your profile is incomplete
+            <Button variant="link" onClick={linkHandler}>
+              Complete now
+            </Button>
+          </p>
+        </p>
+      </div>
     </>
   );
 };
