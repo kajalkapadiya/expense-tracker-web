@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from "react";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import AuthContext from "../auth/AuthContext";
 import { useHistory } from "react-router-dom";
 
@@ -16,6 +16,10 @@ const Login = () => {
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
+  };
+
+  const passHandler = () => {
+    history.replace("/forgot");
   };
 
   const submitHandler = (e) => {
@@ -58,7 +62,8 @@ const Login = () => {
         })
         .then((data) => {
           authCntx.login(data.email);
-          console.log(data.email);
+          authCntx.login(data.idToken);
+          // console.log(data.idToken);
           console.log("login");
           history.replace("/");
         })
@@ -108,6 +113,11 @@ const Login = () => {
               className="form-control"
               placeholder="Confirm password"
             ></input>
+          </div>
+          <div>
+            <Button variant="link" onClick={passHandler}>
+              forgot password
+            </Button>
           </div>
           <div>
             {!isLoading && (

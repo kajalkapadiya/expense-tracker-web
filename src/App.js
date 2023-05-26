@@ -8,6 +8,7 @@ import Login from "./component/pages/Login";
 import About from "./component/pages/About";
 import AuthContext from "./component/auth/AuthContext";
 import Profile from "./component/pages/Profile";
+import ForgotPass from "./component/pages/ForgotPass";
 
 function App() {
   const authCntx = useContext(AuthContext);
@@ -36,6 +37,9 @@ function App() {
         </Route>
         <Route path="/profile">
           <Profile />
+        </Route>
+        <Route path="/forgot">
+          <ForgotPass />
         </Route>
       </Switch>
     </>

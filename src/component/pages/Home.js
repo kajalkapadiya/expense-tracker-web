@@ -34,7 +34,7 @@ const Home = () => {
   return (
     <>
       <div className="border-bottom">
-        <p>
+        <h4>
           Welcome to Expense Tracker
           <p style={{ float: "right" }}>
             Your profile is incomplete
@@ -42,7 +42,7 @@ const Home = () => {
               Complete now
             </Button>
           </p>
-        </p>
+        </h4>
       </div>
       <Button
         variant="outline-warning"
