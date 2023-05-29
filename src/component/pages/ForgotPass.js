@@ -1,8 +1,14 @@
 import { useRef } from "react";
 import { Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 const ForgotPass = () => {
   const emailRef = useRef();
+  const history = useHistory();
+
+  const loginPage = () => {
+    history.replace("/login");
+  };
 
   const passReset = async () => {
     const res = await fetch(
@@ -12,7 +18,6 @@ const ForgotPass = () => {
         body: JSON.stringify({
           requestType: "PASSWORD_RESET",
           email: emailRef.current.value,
-          // returnSecureToken: true,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +34,9 @@ const ForgotPass = () => {
       <br />
       <Button onClick={passReset}>Send Link</Button>
       <br />
-      <Button variant="link">Alreayd a user? Login</Button>
+      <Button variant="link" onClick={loginPage}>
+        Alreayd a user? Login
+      </Button>
     </div>
   );
 };

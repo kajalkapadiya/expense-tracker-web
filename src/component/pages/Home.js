@@ -2,10 +2,11 @@ import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../auth/AuthContext";
 import { useContext } from "react";
+import Expenses from "./Expenses";
 
 const Home = () => {
   const authCntx = useContext(AuthContext);
-  // console.log(authCntx.token);
+  const isLoggedIn = authCntx.isLoggedIn;
   const history = useHistory();
 
   const linkHandler = () => {
@@ -51,6 +52,10 @@ const Home = () => {
       >
         verify email id
       </Button>
+      <br />
+      <div style={{ marginTop: "50px", textAlign: "center" }}>
+        {isLoggedIn && <Expenses />}
+      </div>
     </>
   );
 };
