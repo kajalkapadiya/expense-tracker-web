@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../auth/AuthContext";
 import { useContext } from "react";
-import Expenses from "./Expenses";
+import Expenses from "../Expenses";
 
 const Home = () => {
   const authCntx = useContext(AuthContext);

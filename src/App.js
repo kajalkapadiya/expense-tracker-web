@@ -8,11 +8,11 @@ import Login from "./component/pages/Login";
 import About from "./component/pages/About";
 import AuthContext from "./component/auth/AuthContext";
 import Profile from "./component/pages/Profile";
-import ForgotPass from "./component/pages/ForgotPass";
+import ForgotPass from "./component/ForgotPass";
 
 function App() {
   const authCntx = useContext(AuthContext);
-  console.log(authCntx.isLoggedIn);
+
   return (
     <>
       <MainHeader />
