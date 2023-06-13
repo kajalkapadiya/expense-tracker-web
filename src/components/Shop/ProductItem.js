@@ -5,6 +5,7 @@ import { cartActions } from "../store/cart-slice";
 
 const ProductItem = (props) => {
   const dispatch = useDispatch();
+  // const cart = useSelector((state) => state.cart);
 
   const { title, price, description, id } = props;
   const addToCartHandler = () => {
